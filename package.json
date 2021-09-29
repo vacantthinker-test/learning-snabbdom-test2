@@ -1,0 +1,12 @@
+{
+  "name": "learning-snabbdom-testbase",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest"
+  }
+}
