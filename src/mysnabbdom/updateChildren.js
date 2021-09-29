@@ -127,6 +127,7 @@ export function updateChildren(elm, oldCh, newCh) {
                 // old  M D C A Q
                 // new  M A B N O
                 // console.log('say hi')
+                patchVnode(oldCh[positionInMap], newStartVnode)
 
                 let refChild = oldCh[oldStartIdx].elm
                 let newChild = oldCh[positionInMap].elm
