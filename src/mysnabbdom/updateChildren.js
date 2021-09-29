@@ -116,7 +116,8 @@ export function updateChildren(elm, oldCh, newCh) {
                 let newChild = createElement(newStartVnode)
                 elm.insertBefore(newChild, refChild)
             } else {
-
+                // 简单版本, 不考虑key一样, selector不一样的情况
+                //
 
                 // 找到了, 需要移动该元素
                 // old D C A Q
@@ -127,12 +128,18 @@ export function updateChildren(elm, oldCh, newCh) {
                 // old  M D C A Q
                 // new  M A B N O
                 // console.log('say hi')
+                // new A元素 可以在 old 中找到, patch, 然后移动该元素
                 patchVnode(oldCh[positionInMap], newStartVnode)
 
                 let refChild = oldCh[oldStartIdx].elm
                 let newChild = oldCh[positionInMap].elm
                 elm.insertBefore(newChild, refChild)
-                oldCh[positionInMap] = undefined
+                // old M D C A Q
+                // new M A B N O
+                // insertBefore
+                // old M A D C Q
+                // new
+                oldCh[positionInMap] = undefined // D C undefined Q
 
             }
 
